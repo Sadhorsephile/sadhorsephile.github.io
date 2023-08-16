@@ -1,34 +1,34 @@
 {
-  "name": "web-ifc-viewer-root",
-  "description": "IFC viewer",
-  "version": "1.0.218",
+  "name": "web-ifc-viewer-basic-example",
   "private": true,
   "type": "module",
-  "main": "viewer/src/ifc-viewer-api.ts",
-  "author": "agviegas",
-  "license": "MIT",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/ifcjs/web-ifc-viewer.git"
-  },
+  "version": "1.0.218",
+  "description": "A basic html example for web-ifc-viewer",
+  "main": "main.js",
   "scripts": {
-    "init-repo": "yarn && npm run build",
-    "start": "cd example && yarn start",
-    "build": "cd viewer && yarn build && cd ../example && yarn build",
-    "publish-repo": "cd viewer && yarn build && npm publish"
+    "build": "rollup -c && npm run copy-wasm && npm run copy-wasm-mt && npm run copy-worker",
+    "watch": "rollup -c -w",
+    "copy-wasm": "cpy ../node_modules/web-ifc/web-ifc.wasm files/",
+    "copy-wasm-mt": "cpy ../node_modules/web-ifc/web-ifc-mt.wasm files/",
+    "copy-worker": "cpy ../node_modules/web-ifc-three/IFCWorker.js files/",
+    "start": "serve"
   },
-  "bugs": {
-    "url": "https://github.com/agviegas/web-ifc-viewer/issues"
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "@rollup/plugin-commonjs": "^19.0.0",
+    "@rollup/plugin-node-resolve": "^13.0.0",
+    "@types/three": "^0.134.0",
+    "rollup": "^2.47.0",
+    "serve": "^11.3.2"
   },
-  "keywords": [
-    "ifc",
-    "geometry",
-    "threejs",
-    "bim",
-    "3d"
-  ],
-  "workspaces": [
-    "viewer",
-    "example"
-  ]
+  "dependencies": {
+    "dxf-writer": "^1.15.1",
+    "jspdf": "^2.4.0",
+    "stats.js": "0.17.0",
+    "three": "0.135",
+    "three-mesh-bvh": "^0.5.11",
+    "web-ifc": "^0.0.39",
+    "web-ifc-viewer": "1.0.218"
+  }
 }
