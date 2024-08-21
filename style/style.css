@@ -41,7 +41,6 @@ body {
   content: '';
   position: absolute;
   height: 100%;
-  background-color: #F5EE84;
   animation: indeterminate_first 2.0s infinite ease-out;
 }
 
@@ -49,7 +48,6 @@ body {
   content: '';
   position: absolute;
   height: 100%;
-  background-color: #F5EE84;
   animation: indeterminate_second 2.0s infinite ease-in;
 }
 
